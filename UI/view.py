@@ -16,8 +16,14 @@ class View(ft.UserControl):
         self._controller = None
         # graphical elements
         self._title = None
-        self._txt_name = None
+        self._ddStore = None
+        self._txtIntK = None
+        self._btnCreaGrafo = None
+        self._btnCerca = None
+        self._ddNode = None
+        self._btnRicorsione = None
         self._txt_result = None
+
 
     def load_interface(self):
         # title
@@ -25,6 +31,7 @@ class View(ft.UserControl):
         self._page.controls.append(self._title)
 
         self._ddStore = ft.Dropdown(label="Store")
+        self._controller.fillDDstore()
         self._txtIntK = ft.TextField(label="Numero giorni massimo K")
         self._btnCreaGrafo = ft.ElevatedButton(text="Crea Grafo", on_click=self._controller.handleCreaGrafo)
         cont = ft.Container(self._ddStore, width=250, alignment=ft.alignment.top_left)
